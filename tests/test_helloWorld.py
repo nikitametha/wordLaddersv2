@@ -1,10 +1,6 @@
-import unittest
-from helloworld import sayHello
+import pytest
+import helloworld.helloWorld as hw
 
-class testHello(unittest.TestCase):
-    def test_msg(self):
-        sayHelloObj = sayHello()
-        self.assertEqual(sayHelloObj.msg, 'Hello World!')
-
-if __name__ == '__main__':
-    unittest.main()
+def test_msg():
+    sayHelloObj = hw.sayHello()
+    assert sayHelloObj.msg == 'Hello World!'
