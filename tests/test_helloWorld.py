@@ -3,4 +3,4 @@ import helloworld.helloWorld as hw
 
 def test_msg():
     sayHelloObj = hw.sayHello()
-    assert sayHelloObj.msg == 'Hello World!'
+    assert sayHelloObj == 'Hello World!'
