@@ -1,5 +1,5 @@
 import pytest
-import helloworld.helloWorld as hw
+import src.helloWorld as hw
 
 def test_msg():
     sayHelloObj = hw.sayHello()

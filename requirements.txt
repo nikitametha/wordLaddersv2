@@ -1,3 +1,7 @@
 Flask==2.3.2
+jsonpickle==0.9.6
+networkx==3.1
+nltk==3.8.1
 pytest==7.3.2
-
+python-dateutil==2.8.2
+regex==2023.6.3
