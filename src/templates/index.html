@@ -1,0 +1,56 @@
+<html>
+<head><title>WORD LADDERS</title>
+  <link rel="stylesheet" href="../static/index.css">
+
+
+</head>
+<body>
+
+    <div class="wordlddr">Welcome to Word Ladders!</div>
+
+<div id="btnss">
+  <button id = "playgame" class="indexplybtn" value="PLAY THE GAME!">PLAY THE GAME!</button>
+<button id = "solver" class="indexplybtn" value="WORD LADDER SOLVER">WORD LADDER SOLVER</button>
+
+</div>
+
+<button id = "about" value="HOW TO PLAY">How to Play</button>
+
+
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span id="close-modal">&times;</span>
+    <p>Welcome to Word Ladders! This is a game where you go from one word to another by swapping/deleting/inserting one letter at a time.</p>
+  
+    <p> Click PLAY THE GAME! to have the computer generate two words for you, which you can solve as a puzzle.</p>
+    <p> Click WORD LADDER SOLVER, to find the shortest path between two words which you can specify!</p>
+
+    <p> The words can be of lengths ranging from THREE to SEVEN letters. The intermediate words must be valid. The aim is to find the shortest path of words.</p>
+  </div>
+</div>
+
+
+<div id="solverForm" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span id="close-solverform">&times;</span>
+    <p> Enter a start word and an end word, and the solver will generate the word ladder for you! (Both words must be of length ranging from THREE to SEVEN letters, and valid dictionary words.)
+    <form action = "http://localhost:8000/result" method = "POST">
+      <p>Start Word <input type = "text" name = "startwrd" /></p>
+      <p>End Word <input type = "text" name = "endwrd" /></p>
+      <p><input type = "submit" value = "Solve!" /></p>
+   </form>
+  </div>
+</div>
+
+
+  <div class="footer">
+    <p>© Created and owned by <a href="https://nikitametha.com/" id="authorlink">Nikita Metha</a></p>
+  </div>
+
+  <script src="{{url_for('static', filename='index.js')}}"></script>
+</body>
+</html>
