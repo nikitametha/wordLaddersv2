@@ -1,0 +1,36 @@
+<html>
+<head><title>WORD LADDERS</title>
+  <link rel="stylesheet" href="../static/playgame.css">
+
+
+</head>
+<body>
+    
+
+    <div class="wordlddr">
+        <p name="paras"> Start Word: {{x[0]}}</p>
+        <p name="paras"> End Word: {{x[1]}}</p>
+        {% if hintt!=0 %}
+        <p >{{hintt}}</p>
+         {% endif %}
+         <p >Hint: {{helpguess}}</p>
+    </div>
+    <div class="guessarea">
+        <form action = "http://localhost:8000/calculate" method = "POST">
+            <p><input type = "submit" name="submitbutton" class="indexplybtn" value = "Show me the next word" /></p>
+            <p id="guesswrdd">Guess Word: <input type = "text" name = "guesswrd" /></p>
+            <p><input type = "submit" name="submitbutton" class="indexplybtn" value = "Check Word!" /></p>
+
+    </div>
+    <div class="wordlist">
+        {% for i in g %}
+             
+        <p>{{i}}</p>
+       
+    
+       {% endfor %}
+
+    </div>   
+         
+
+</body>

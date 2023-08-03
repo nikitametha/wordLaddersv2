@@ -17,7 +17,27 @@
 <button id = "about" value="HOW TO PLAY">How to Play</button>
 
 
-<div id="myModal" class="modal">
+<div id="playModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span id="close-playmodal">&times;</span>
+    <p> Here are your start and end words! </p>
+   <p name="paras"> Start Word: {{x[0]}}</p>
+   <p name="paras"> End Word: {{x[1]}}</p>
+
+      <form action = "http://localhost:8000/playgame" method = "POST">
+        <p> Add, delete or change a letter from the start word to make an intermediate word, and continue till you reach the end word.</p>
+
+        <p><input type = "submit" value = "Begin!" /></p>
+
+     </form>
+   
+  </div>
+</div>
+
+
+<div id="helpModal" class="modal">
 
   <!-- Modal content -->
   <div class="modal-content">

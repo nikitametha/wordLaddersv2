@@ -1,0 +1,153 @@
+body, html {
+    height: 100%;
+   /* The image used */
+    background-image: url("Scrabble.jpeg");
+  
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: right;
+  }
+
+  .wordlddr {
+    background-color: white;
+    color: black;
+    font-size: 2vw; /* Responsive font size */
+    font-weight: bold;
+    margin: 0 auto; /* Center the text container */
+    padding: 1px;
+    width: 20%;
+    text-align: center; /* Center text */
+    position: absolute; /* Position text */
+    top: 20%; /* Position text in the middle */
+    left: 55%; /* Position text in the middle */
+    transform: translate(-50%, -50%); /* Position text in the middle */
+    mix-blend-mode: screen; /* This makes the cutout text possible */}
+
+   
+     .guessarea {
+      background-color: white;
+      color: black;
+      font-size: 2vw; /* Responsive font size */
+      font-weight: bold;
+      margin: 10 auto; /* Center the text container */
+      padding: 10px;
+      width: 20%;
+      text-align: center; /* Center text */
+      position: absolute; /* Position text */
+      top: 60%; /* Position text in the middle */
+      left: 55%; /* Position text in the middle */
+      transform: translate(-50%, -50%); /* Position text in the middle */
+      mix-blend-mode: screen; /* This makes the cutout text possible */}
+
+      .wordlist {
+        background-color: white;
+        color: black;
+        font-size: 2vw; /* Responsive font size */
+        font-weight: bold;
+        margin: 10 auto; /* Center the text container */
+        padding: 10px;
+        width: 20%;
+        text-align: center; /* Center text */
+        position: absolute; /* Position text */
+        top: 60%; /* Position text in the middle */
+        left: 80%; /* Position text in the middle */
+        transform: translate(-50%, -50%); /* Position text in the middle */
+        mix-blend-mode: screen; /* This makes the cutout text possible */}
+
+    #btnss
+    {
+        transform: translate(-50%, -50%); /* Position text in the middle */
+        margin: 10 auto; /* Center the text container */
+        text-align: center; /* Center text */
+        position: absolute; /* Position text */
+        width: 40%;
+        top: 50%; /* Position text in the middle */
+        left: 70%; /* Position text in the middle */
+        display: block;
+        height: auto;
+        mix-blend-mode: screen; /* This makes the cutout text possible */
+        
+    }
+    .indexplybtn {
+        background-color: #335360;
+        color: white;
+        font-size: 25px; /* Responsive font size */
+        font-weight: bold;
+        margin: 0 auto; /* Center the text container */
+        padding: 1px;
+        width: 100%;
+        margin-top: 10%;
+        position: relative;
+        text-align: center; /* Center text */
+        border: 1px;
+        border-radius: 10px;
+        cursor: pointer;
+        display: block;
+      }
+      
+      .indexplybtn:hover {background-color: black;
+        border-color: white;
+
+
+    }
+
+      
+    .indexplybtn:active {
+        background-color: #335360;
+        box-shadow: 0 5px #666;
+        transform: translateY(1px);
+      }
+
+    #guesswrdd
+    {
+        font-size: 25px;
+    }
+      
+     #authorlink
+     {
+        color: white;
+     }
+     #authorlink:hover
+     {
+        color:#335360 ;
+     }
+
+
+/*------------*/
+    
+      
+  
+
+   .divs{  
+   margin-top:200px;
+   margin-right: 20%;
+   background-color:#5CDFF3;
+    color:black;
+   font-size:40px;
+   width:50%;
+   height:auto;
+   font-family:sans-serif;
+   padding:5px 5px 5px 5px;
+   border: 2px solid gray;
+   }
+   
+   .paras
+   { margin-left:90px;
+     background-color:white;
+    color:black;
+   margin-top:30px;
+   text-align:center;
+   width:80%;
+   height:auto;
+   font-size:30px;
+   font-family:sans-serif;
+   padding:5px 5px 5px 5px;
+   border: 2px solid gray;
+   }
+   
+  
