@@ -1,13 +1,13 @@
+# Main file for game hosted on localhost - run this to run flask server
 import pickle
 import random
 import networkx as nx
 from flask import Flask,request, render_template
 
 
-x=[0,0]
-g=[]
-hintt=0
-won=0
+st_en_words=[0,0] # holds start and end word
+curr_ladder=[]
+won_flag=0
 helpguess=""
 
 reader= open('../data/word_data.txt', 'r')
@@ -32,32 +32,32 @@ for k,v in b.items():
 app = Flask(__name__,template_folder='templates', static_folder='static')
 
 
-@app.route("/")
+@app.route("/", methods=['GET', 'POST'])
 def index():
     while True:
         try:
-            f1=random.choice(word_list)
-            f2=random.choice(word_list)
+            start_word=random.choice(word_list)
+            end_word=random.choice(word_list)
             global ll
-            ll=nx.shortest_path(net, f1, f2)
-            print("Start Word: ",f1)
-            print("End Word: ",f2)
+            ll=nx.shortest_path(net, start_word, end_word)
+            print("Start Word: ",start_word)
+            print("End Word: ",end_word)
         except nx.NetworkXNoPath:
             continue
         break
-    x[0]=f1
-    x[1]=f2
-    global leng
-    leng=len(ll)
-    print(ll)
-    global rr, won, g
-    rr=1
-    won=0
-    g=[]
-    return render_template("index.html",x=x,leng=leng,ll=ll)
+    st_en_words[0]=start_word
+    st_en_words[1]=end_word
+    # print(ll)
+    global curr_word_index, won_flag, curr_ladder
+    curr_word_index=1
+    won_flag=0
+    curr_ladder=[]
+    curr_ladder.append(start_word)
+    print("Current Word Ladder: ",curr_ladder)
+    return render_template("index.html",st_en_words=st_en_words,ll=ll)
 
 
-@app.route('/result',methods = ['POST', 'GET'])
+@app.route('/result', methods = ['POST', 'GET'])
 def result():
       result = request.form
       res=[]; res2=1
@@ -68,60 +68,55 @@ def result():
           except nx.NetworkXNoPath: res2=-1 # there's no path between the words
       else: res2=0 #either or both words not in our wordlist data
       res1=(res)
+      
 
       return render_template("result.html",res1 = res1, res2=res2)
 
 @app.route('/playgame',methods = ['POST', 'GET'])
 def playgame():
-    print("in playgame the words are = ",x[0])
-    print("the ladder is  = ", ll)
-    return render_template("playgame.html",x=x,ll=ll)
+    # print("in playgame the words are = ",st_en_words[0])
+    print("Current Word Ladder: ",curr_ladder)
+
+    return render_template("playgame.html",st_en_words=st_en_words,ll=ll,curr_ladder=curr_ladder)
 
 
 @app.route('/calculate',methods = ['POST', 'GET'])
 def calculate():
-    global won
-    global rr
+    global won_flag 
+    global curr_word_index
     if request.method == 'POST':
-        #hint next word button is pressed
         if request.form['submitbutton'] == 'Show me the next word':
-            hintt =ll[rr]
-            g.append(ll[rr])
-            rr+=1
-            if(rr==len(ll)):  
-                print("won in hints!")
-                won=1
-                return render_template("index.html",x=x,ll=ll)
+            #hintt =ll[curr_word_index] - not necessary since it word be added show up on word list anyway
+            curr_ladder.append(ll[curr_word_index])
+            curr_word_index+=1
+            if(curr_word_index==len(ll)):  
+                won_flag=1
+                return render_template("win_game.html")
             else:
-                print("didn't win just yet")
-                return render_template("playgame.html",x=x,ll=ll,hintt=hintt,won=won,g=g)
+                
+                return render_template("playgame.html",st_en_words=st_en_words,ll=ll,won_flag=won_flag,curr_ladder=curr_ladder)
         if request.form['submitbutton'] == 'Check Word!':
-            print("entered to check word")
             result = request.form
             t=result['guesswrd']
             global helpguess
-            if (t in ll and t not in g):
-                print("new guess")
-                g.append(t)
-                rr=rr+1
-                print(g)
-                if(rr==len(ll)):
-                    print("won!")
-                    won=1
-                    return render_template("index.html",x=x,ll=ll)
+            if (t==ll[curr_word_index] and t not in curr_ladder):
+                curr_ladder.append(t)
+                curr_word_index=curr_word_index+1
+                # print(curr_ladder)
+                if(curr_word_index==len(ll)):
+                    won_flag=1
+                    return render_template("win_game.html")
                 else:
-                    print("correct guess")
                     helpguess="Correct Guess!"
             else:
-                print("incorrect word, give hint")
-                if(len(ll[rr-1])<len(ll[rr])):
-                    helpguess="Try again! Add a letter!"
-                elif(len(ll[rr-1])>len(ll[rr])):
-                    helpguess="Try again! Delete a letter"
+                # print("incorrect word, give hint")
+                if(len(ll[curr_word_index-1])<len(ll[curr_word_index])):
+                    helpguess="Try again! Add a letter to '"+ str(ll[curr_word_index-1]) +"'"
+                elif(len(ll[curr_word_index-1])>len(ll[curr_word_index])):
+                    helpguess="Try again! Delete a letter from '"+ str(ll[curr_word_index-1]) +"'"
                 else:
-                    helpguess="Try again! Change a letter!"
-            print("rendering template")
-            return render_template("playgame.html",x=x,ll=ll,won=won,helpguess=helpguess,g=g)
+                    helpguess="Try again! Change a letter in '"+ str(ll[curr_word_index-1]) +"'"
+            return render_template("playgame.html",st_en_words=st_en_words,ll=ll,won_flag=won_flag,helpguess=helpguess,curr_ladder=curr_ladder)
 
 
 

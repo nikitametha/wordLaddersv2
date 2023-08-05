@@ -1,5 +1,5 @@
 <html>
-<head><title>WORD LADDERS</title>
+<head><title>Word Ladders</title>
   <link rel="stylesheet" href="../static/index.css">
 
 
@@ -22,14 +22,14 @@
   <!-- Modal content -->
   <div class="modal-content">
     <span id="close-playmodal">&times;</span>
-    <p> Here are your start and end words! </p>
-   <p name="paras"> Start Word: {{x[0]}}</p>
-   <p name="paras"> End Word: {{x[1]}}</p>
+    <p class="paras"> Here are your start and end words! </p>
+   <p class="paras"> Start Word: {{st_en_words[0]}}</p>
+   <p class="paras"> End Word: {{st_en_words[1]}}</p>
 
       <form action = "http://localhost:8000/playgame" method = "POST">
-        <p> Add, delete or change a letter from the start word to make an intermediate word, and continue till you reach the end word.</p>
+        <p class="paras"> Add, delete or change a letter from the start word to make an intermediate word, and continue till you reach the end word.</p>
 
-        <p><input type = "submit" value = "Begin!" /></p>
+        <p ><input type = "submit" value = "Begin!" class="modalbtn" /></p>
 
      </form>
    
@@ -42,12 +42,12 @@
   <!-- Modal content -->
   <div class="modal-content">
     <span id="close-modal">&times;</span>
-    <p>Welcome to Word Ladders! This is a game where you go from one word to another by swapping/deleting/inserting one letter at a time.</p>
+    <p class="paras">Welcome to Word Ladders! This is a game where you go from one word to another by swapping/deleting/inserting one letter at a time.</p>
   
-    <p> Click PLAY THE GAME! to have the computer generate two words for you, which you can solve as a puzzle.</p>
-    <p> Click WORD LADDER SOLVER, to find the shortest path between two words which you can specify!</p>
+    <p class="paras"> Click PLAY THE GAME! to have the computer generate two words for you, which you can solve as a puzzle.</p>
+    <p class="paras"> Click WORD LADDER SOLVER, to find the shortest path between two words which you can specify!</p>
 
-    <p> The words can be of lengths ranging from THREE to SEVEN letters. The intermediate words must be valid. The aim is to find the shortest path of words.</p>
+    <p class="paras"> The words can be of lengths ranging from THREE to SEVEN letters. The intermediate words must be valid. The aim is to find the shortest path of words.</p>
   </div>
 </div>
 
@@ -57,11 +57,11 @@
   <!-- Modal content -->
   <div class="modal-content">
     <span id="close-solverform">&times;</span>
-    <p> Enter a start word and an end word, and the solver will generate the word ladder for you! (Both words must be of length ranging from THREE to SEVEN letters, and valid dictionary words.)
-    <form action = "http://localhost:8000/result" method = "POST">
-      <p>Start Word <input type = "text" name = "startwrd" /></p>
-      <p>End Word <input type = "text" name = "endwrd" /></p>
-      <p><input type = "submit" value = "Solve!" /></p>
+    <p class="paras"> Enter a start word and an end word, and the solver will generate the word ladder for you! </p>
+      <p class="paras">(Both words must be of length ranging from THREE to SEVEN letters, and valid dictionary words.)</p>      <form action = "http://localhost:8000/result" method = "POST">
+      <p class="paras">Start Word <input type = "text" autofocus="autofocus"  autocomplete="off" name = "startwrd" /></p>
+      <p class="paras"> End Word <input type = "text" autocomplete="off" name = "endwrd" /></p>
+      <p class="paras"><input type = "submit" value = "Solve!" class="modalbtn" /></p>
    </form>
   </div>
 </div>

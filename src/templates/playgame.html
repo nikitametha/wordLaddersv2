@@ -1,29 +1,38 @@
 <html>
-<head><title>WORD LADDERS</title>
+<head><title>Play Game</title>
   <link rel="stylesheet" href="../static/playgame.css">
 
 
 </head>
 <body>
     
-
+    <div class="homebutton">
+        <button type="submit">
+            <form action = "http://localhost:8000/" method = "POST">
+            <input type="image" src="../static/homeicon.webp" alt="homepng" height="40px" width="40px" />
+            </form>
+        </div>
+            
     <div class="wordlddr">
-        <p name="paras"> Start Word: {{x[0]}}</p>
-        <p name="paras"> End Word: {{x[1]}}</p>
-        {% if hintt!=0 %}
-        <p >{{hintt}}</p>
-         {% endif %}
-         <p >Hint: {{helpguess}}</p>
+        <p class="paras"> Start Word: {{st_en_words[0]}}</p>
+        <p class="paras"> End Word: {{st_en_words[1]}}</p>
+        
+    </div>
+    <div class="hintarea">
+         <p class="paras" >Hint: {{helpguess|default("Check a word to get a hint on it", true)}} </p>
     </div>
     <div class="guessarea">
         <form action = "http://localhost:8000/calculate" method = "POST">
-            <p><input type = "submit" name="submitbutton" class="indexplybtn" value = "Show me the next word" /></p>
-            <p id="guesswrdd">Guess Word: <input type = "text" name = "guesswrd" /></p>
+            
+            <p class="paras" id="guesswrdd">Guess Word: <input type = "text" autofocus="autofocus"  autocomplete="off" class="paras" name = "guesswrd" /></p>
             <p><input type = "submit" name="submitbutton" class="indexplybtn" value = "Check Word!" /></p>
+            <p class="paras"> Tired of guessing the next word? Click here!</p>
+            <p><input type = "submit" name="submitbutton" class="indexplybtn" value = "Show me the next word" /></p>
 
     </div>
     <div class="wordlist">
-        {% for i in g %}
+        CURRENT WORD LADDER:
+        {% for i in curr_ladder %}
              
         <p>{{i}}</p>
        

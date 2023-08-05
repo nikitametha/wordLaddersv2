@@ -1,56 +1,31 @@
 <html>
 <head><title>PathFinder</title>
-<style>
-body { background-color:black;
- color:white;
- font-size:40px;
-font-family:sans-serif;
-}
-.paras
-{ 
-  background-color:white;
- color:black;
-margin-top:10px;
-text-align:center;
-width:100%;
-height:auto;
-font-size:30px;
-font-family:sans-serif;
-padding:5px 5px 5px 5px;
-border: 2px solid gray;
-}
-
-a{ text-decoration:none;
-}
-.chc2 { border-radius:5%;
-  background-color:#86F9DA;
- color:white;
-width:15%;
-margin-top:40px;
-  height:10%;
-font-size:40px;
- 
-}
-</style>
+  <link rel="stylesheet" href="../static/playgame.css">
 
 
    <body>
-     <h1>WORD LADDER SOLVER </h1>
+     
+    <div class="resultheading">WORD LADDER SOLVER </div> 
+     <div class="ladder">
           {% if (res2==1)%}
                {% for i in res1 %}
              
-                <p name="paras">{{i}}</p>
+               <p>{{i}}</p>
                
             
                {% endfor %}
 
           {% endif %}
       {% if res2==-1 %}
-         <p class="paras">NO PATH!</p>
+         <p>NO PATH!</p>
           {% endif %}
        {% if res2==0 %}
-         <p class="paras">WORDS DO NOT EXIST</p>
+         <p>WORDS DO NOT EXIST</p>
           {% endif %}
- <a href="http://localhost:8000/"><input type="button" class="chc2" value="Play Again"/></a>
+
+          <form action = "http://localhost:8000/" method = "POST">
+          <input class= "indexplybtn" type="submit" value="Play Again"></form>
+        </div>
+ 
      </body>
 </html>

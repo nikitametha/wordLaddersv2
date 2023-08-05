@@ -1,3 +1,4 @@
+# Run this on terminal 'python3 game_terminal.py' to play the game on the terminal ONLY.
 import pickle
 import random
 import networkx as nx
@@ -49,6 +50,7 @@ if(inp==2):
     print("TODO\n")
 
 g=[]
+g.append(f1)
 rr=1
 print("Type 1 to give up the next word!")
 print("Make the bridge!")
