@@ -17,12 +17,23 @@ Updated version equipped with tests and Github Actions pipeline with Docker, sol
 
 ## Demo
 
-Insert gif or link to demo
+PathFinder Mode (200x Sped Up):
 
 
-## Screenshots
+https://github.com/nikitametha/wordLaddersv2/assets/15265652/0f8460e3-aad7-4a5c-93e1-f7a874e97d82
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+Play Game Mode Part 1 (200x Sped Up):
+
+
+https://github.com/nikitametha/wordLaddersv2/assets/15265652/67051522-a14d-426e-b63e-246b203db82e
+
+Play Game Mode Part 2 (200x Sped Up):
+
+
+https://github.com/nikitametha/wordLaddersv2/assets/15265652/9592bf85-dab9-48f9-8386-8c7fdb45b213
+
+
 
 
 ## Features
