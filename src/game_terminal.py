@@ -54,7 +54,7 @@ g.append(f1)
 rr=1
 print("Type 1 to give up the next word!")
 print("Make the bridge!")
-t=input()
+t=(input()).lower()
 
 
 while(g!=ll):
@@ -66,7 +66,7 @@ while(g!=ll):
         if(rr==len(ll)):
             print("You won!\n")
             break
-    elif (t in ll and t not in g):
+    elif (t.lower()==ll[rr] and t.lower() not in g):
         g.append(t)
         rr=rr+1
         print(g)

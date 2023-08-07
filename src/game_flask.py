@@ -61,8 +61,8 @@ def index():
 def result():
       result = request.form
       res=[]; res2=1
-      w1=(result['startwrd'])
-      w2=(result['endwrd'])
+      w1=(result['startwrd']).lower()
+      w2=(result['endwrd']).lower()
       if(w1 in word_list and w2 in word_list):
           try: res=nx.shortest_path(net, w1, w2)
           except nx.NetworkXNoPath: res2=-1 # there's no path between the words
@@ -99,8 +99,8 @@ def calculate():
             result = request.form
             t=result['guesswrd']
             global helpguess
-            if (t==ll[curr_word_index] and t not in curr_ladder):
-                curr_ladder.append(t)
+            if (t.lower()==ll[curr_word_index] and t.lower() not in curr_ladder):
+                curr_ladder.append(t.lower())
                 curr_word_index=curr_word_index+1
                 # print(curr_ladder)
                 if(curr_word_index==len(ll)):
